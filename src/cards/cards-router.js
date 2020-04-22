@@ -34,5 +34,14 @@ cardsRouter
       })
       .catch(next)
   })
+  cardsRouter
+  .route('/:cardId')
+  .delete((req, res, next) => {
+    CardsService.deleteCard(req.app.get('db'), req.params.cardId)
+      .then(() => {
+        res.status(204).end();
+      })
+      .catch(next);
+  })
 
 module.exports= cardsRouter;

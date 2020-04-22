@@ -20,6 +20,12 @@ const CardsService = {
       date_created: new Date(card.date_created),
       date_modified: new Date(card.date_modified)||null
     }
-}
+},
+deleteCard(knex,id){
+  return knex 
+  .from('flash_cards')
+  .where('id',id)
+  .delete()
+},
 }
 module.exports=CardsService;
