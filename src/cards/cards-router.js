@@ -4,12 +4,21 @@ const CardsService = require('./cards-service')
 const jsonBodyParser = express.json()
 
 const cardsRouter = express.Router()
-
+function isNormalInteger(str) {
+  var n = Math.floor(Number(str));
+  return n !== Infinity && String(n) === str && n >= 0;
+}
 cardsRouter
   .route('/:projectId')
-  .get((req, res, next) => {
+  .all((req,res, next)=> {let id = req.params.projectId;
+  if (isNormalInteger(id)){
+    next();
+  }else{ res.status(400).send({err:'Invalid value'})
+
+  }})
+  .get((req, res, next) => {console.log(req.params);
     CardsService.getAllCards(req.app.get('db'),req.params.projectId)
-      .then(cards => {
+      .then(cards => {console.log(cards);
         res.json(cards.map(CardsService.serializeCard))
       })
       .catch(next)
@@ -23,6 +32,7 @@ cardsRouter
       .then(card => {
           res.status(201).json(card)
       })
+      .catch(next)
   })
 
 module.exports= cardsRouter;

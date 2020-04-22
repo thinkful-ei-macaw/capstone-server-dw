@@ -24,5 +24,12 @@ projectsRouter
           res.status(201).json(project)
       })
   })
+  .delete((req, res, next) => {
+    ProjectService.deleteProject(req.app.get('db'), req.params.projectId)
+      .then(() => {
+        res.status(204).end();
+      })
+      .catch(next);
+  })
 
 module.exports= projectsRouter;

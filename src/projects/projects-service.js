@@ -7,7 +7,7 @@ const ProjectsService = {
   },
   insert(db,project){
       return db("flash_projects")
-      .insert(project)
+      .insert(project).returning('id')
   },
   serializeProject(project) {
     return {
@@ -15,6 +15,12 @@ const ProjectsService = {
       project_name: xss(project.project_name),
       date_created: new Date(project.date_created),
     }
-}
-}
+},
+deleteProject(knex,id){
+  return knex 
+  .from('flash_projects')
+  .where('id',id)
+  .delete()
+},
+};
 module.exports=ProjectsService;
