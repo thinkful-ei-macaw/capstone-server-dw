@@ -45,7 +45,7 @@ app.use(function errorHandler(error, req, res, next) {
     }
     res.status(500).json(response);
 });
-
+//Authorization to be added later
 // app.use(function validateBearerToken(req, res, next) {
 //     const apiToken = process.env.API_TOKEN;
 //     const authToken = req.get('Authorization');

@@ -1,6 +1,6 @@
 const express = require('express')
 const ProjectsService = require('./projects-service')
-// const { requireAuth } = require('../middleware/jwt-auth')
+// const { requireAuth } = require('../middleware/jwt-auth') AUTH REQUIRED LATER
 const jsonBodyParser = express.json()
 
 const projectsRouter = express.Router()

@@ -1,6 +1,6 @@
 const express = require('express')
 const CardsService = require('./cards-service')
-// const { requireAuth } = require('../middleware/jwt-auth')
+// const { requireAuth } = require('../middleware/jwt-auth')AUTH REQUIRED LATER
 const jsonBodyParser = express.json()
 
 const cardsRouter = express.Router()
