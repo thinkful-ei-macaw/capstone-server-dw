@@ -8,25 +8,29 @@ API Documentation:
 Projects Endpoints:
 GET/api/projects
 -Returns an array of created flash projects
+
 [{
     "id":1,
     "project_name":"test project",
     "date_created": "2020-04-24T01:32:36.537Z",
     "date_modified": null
 }]
+
 POST/api/projects
 -Creates a new flash project
+
 {
     "project_name":"test project"
 
 }
+
 DELETE/api/projects/:projectId
 -deletes a  flash project
-
 
 Card Endpoints:
 GET/api/cards/:projectId
 -returns an array of flash cards
+
 [{
     "id":1,
     "question":"Capitol of Georgia?",
@@ -34,15 +38,18 @@ GET/api/cards/:projectId
     "date_created": "2020-04-24T01:32:36.537Z",
     "date_modified": null
 }]
+
 POST/api/cards/:projectId
+
 -Create a flash card for your flash project
+
 {
     "question":"What is React?",
     "answer":"A JS library for constructing UI's"
 }
+
 DELETE/api/cards/:projectId
 -Delete a flash card from your project
-
 
 
 ![Screenshot (30)](https://user-images.githubusercontent.com/59489905/82004274-71cbce00-9630-11ea-88fc-2087b4befd86.png)
